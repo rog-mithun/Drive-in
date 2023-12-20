@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Drivin - Driving School Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Style for the floating chatbot */
+        #floating-chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        /* Style for the chatbot iframe */
+        #chatbot-iframe {
+            width: 350px;
+            height: 430px;
+            transition: height 0.3s;
+        }
+
+        /* Style for the minimize/maximize button */
+        #toggle-button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark text-light p-0">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                    <small id="location">Detecting location... </small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <small class="far fa-clock text-primary me-2"></small>
+                    <small id="currentDateTime"></small>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                   
+                    <small>TRANSPORT DEPARTMENT,GOVERNMENT OF TAMILNADU</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center mx-n2">
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-link rounded-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <script>
+        function updateDateTime() {
+          var currentDateTimeElement = document.getElementById("currentDateTime");
+        
+          // Get the current date and time
+          var currentDate = new Date();
+          
+          // Format the date and time as desired (adjust the format as needed)
+          var formattedDateTime = currentDate.toLocaleString('en-US', {
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: true
+          });
+        
+          // Update the content of the element
+          currentDateTimeElement.textContent = formattedDateTime;
+        }
+        
+        // Call the function initially
+        updateDateTime();
+        
+        // Update the date and time every second (1000 milliseconds)
+        setInterval(updateDateTime, 1000);
+        </script>
+    <script>
+        // Use the Geolocation API to get the user's location
+        navigator.geolocation.getCurrentPosition(function (position) {
+            // Get the latitude and longitude
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+    
+            // You can use reverse geocoding to get the location address from the latitude and longitude
+            // Here, I'm using a placeholder API. Replace it with a real reverse geocoding API.
+            var reverseGeocodingApiUrl = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=LATITUDE&lon=LONGITUDE';
+    
+            // Make a request to the reverse geocoding API
+            fetch(reverseGeocodingApiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the location element with the detected address
+                    document.getElementById('location').innerText = data.address;
+                })
+                .catch(error => {
+                    console.error('Error fetching location:', error);
+                });
+        });
+    </script>
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
+            <h2 class="m-0"><i class="fa fa-car text-primary me-2"></i>Drivin</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                       
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+<div class="container-xxl py-6" id="policeLoginSection">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="position-relative overflow-hidden ps-5 pt-5 h-100" style="min-height: 400px;">
+                    <!-- Add your police login page content here -->
+                    <h6 class="text-primary text-uppercase mb-2">Police Login</h6>
+                    <form id="policeLoginForm">
+                        <div class="mb-3">
+                            <label for="policeUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="policeUsername" placeholder="Police" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="policePassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="policePassword" placeholder="Police" required>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="policeLogin()">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Police Login Page End -->
+
+
+<!-- Floating chatbot container -->
+<div id="floating-chatbot">
+    <!-- Minimize/Maximize button -->
+    <div id="toggle-button">Minimize</div>
+    <!-- Chatbot iframe -->
+    <iframe
+        id="chatbot-iframe"
+        allow="microphone;"
+        src="https://console.dialogflow.com/api-client/demo/embedded/da6c81fb-ee91-40ce-98ab-cf7a037f271c"
+    ></iframe>
+</div>
+
+<script>
+    // JavaScript to handle the toggle (minimize/maximize) button
+    var chatbotIframe = document.getElementById('chatbot-iframe');
+    var toggleButton = document.getElementById('toggle-button');
+
+    toggleButton.addEventListener('click', function() {
+        if (chatbotIframe.style.height === '0px' || chatbotIframe.style.height === '') {
+            // Maximize the chatbot
+            chatbotIframe.style.height = '430px';
+            toggleButton.textContent = 'Minimize';
+        } else {
+            // Minimize the chatbot
+            chatbotIframe.style.height = '0px';
+            toggleButton.textContent = 'Maximize';
+        }
+    });
+</script>
+
+
+
+<!-- Complaint Form Start -->
+<div class="container-xxl py-6" style="display: none;" id="complaintFormSection">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <!-- Your existing code for the personal information section -->
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <h6 class="text-primary text-uppercase mb-2">File a Complaint</h6>
+                <form id="complaintForm">
+                    <!-- Add fields for Date, Vehicle Number, Fined Amount, Fined Reason, Rash Driving, Location, and Suspension Checkbox -->
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="imageUpload">Upload Image</label>
+                                <input type="file" class="form-control-file" id="imageUpload" accept="image/*">
+                            </div>
+                        </div>
+    
+                        <div class="col-sm-6">
+                            <div class="form-floating">
+                                <input type="date" class="form-control border-0 bg-light" id="complaintDate" required>
+                                <label for="complaintDate">Date</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0 bg-light" id="vehicleNumber" placeholder="Vehicle Number" required>
+                                <label for="vehicleNumber">Vehicle Number</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-floating">
+                                <input type="number" class="form-control border-0 bg-light" id="finedAmount" placeholder="Fined Amount" required>
+                                <label for="finedAmount">Fined Amount</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0 bg-light" id="finedReason" placeholder="Fined Reason" required>
+                                <label for="finedReason">Fined Reason</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <select class="form-select border-0 bg-light" id="rashDriving" required>
+                                    <option value="" selected disabled>Select an option</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <label for="rashDriving">Rash Driving</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0 bg-light" id="location" placeholder="Location" required>
+                                <label for="location">Location</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="suspendLicense">
+                                <label class="form-check-label" for="suspendLicense">
+                                    Should license be suspended?
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div  class="col-lg-6 order-lg-first wow fadeInUp" data-wow-delay="0.1s">
+    </div>
+    </div>
+</div>
+<!-- Complaint Form End -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<!-- JavaScript code for Police Login and Complaint Submission -->
+<script>
+    function policeLogin() {
+        var username = document.getElementById('policeUsername').value;
+        var password = document.getElementById('policePassword').value;
+
+        // For simplicity, assuming username and password are "police"
+        if (username.toLowerCase() === 'police' && password === 'police') {
+            // Hide the login form and show the complaint form section
+            document.getElementById('policeLoginSection').style.display = 'none';
+            document.getElementById('complaintFormSection').style.display = 'block';
+        } else {
+            // Display a message if login fails
+            alert('Invalid username or password. Please try again.');
+        }
+    }
+
+    function submitForm() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Your complaint has been submitted to the head office.',
+            confirmButtonText: 'Okay'
+        });
+    }
+</script>
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+
