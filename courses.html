@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Drivin - Driving School Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark text-light p-0">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                    <small id="location">Detecting location... </small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <small class="far fa-clock text-primary me-2"></small>
+                    <small id="currentDateTime"></small>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                   
+                    <small>TRANSPORT DEPARTMENT,GOVERNMENT OF TAMILNADU</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center mx-n2">
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-link rounded-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <script>
+        function updateDateTime() {
+          var currentDateTimeElement = document.getElementById("currentDateTime");
+        
+          // Get the current date and time
+          var currentDate = new Date();
+          
+          // Format the date and time as desired (adjust the format as needed)
+          var formattedDateTime = currentDate.toLocaleString('en-US', {
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: true
+          });
+        
+          // Update the content of the element
+          currentDateTimeElement.textContent = formattedDateTime;
+        }
+        
+        // Call the function initially
+        updateDateTime();
+        
+        // Update the date and time every second (1000 milliseconds)
+        setInterval(updateDateTime, 1000);
+        </script>
+    <script>
+        // Use the Geolocation API to get the user's location
+        navigator.geolocation.getCurrentPosition(function (position) {
+            // Get the latitude and longitude
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+    
+            // You can use reverse geocoding to get the location address from the latitude and longitude
+            // Here, I'm using a placeholder API. Replace it with a real reverse geocoding API.
+            var reverseGeocodingApiUrl = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=LATITUDE&lon=LONGITUDE';
+    
+            // Make a request to the reverse geocoding API
+            fetch(reverseGeocodingApiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the location element with the detected address
+                    document.getElementById('location').innerText = data.address;
+                })
+                .catch(error => {
+                    console.error('Error fetching location:', error);
+                });
+        });
+    </script>
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
+            <h2 class="m-0"><i class="fa fa-car text-primary me-2"></i>Drivin</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                       
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center">
+            <h1 class="display-4 text-white animated slideInDown mb-4">Driving Licence <br> Get your Driving Licence Here!</h1>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+<!-- Personal Information Start -->
+<div class="container-xxl py-6">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="position-relative overflow-hidden ps-5 pt-5 h-100" style="min-height: 400px;">
+                    <img class="position-absolute w-100 h-100" src="img/about-1.jpg" alt="" style="object-fit: cover;">
+                    <img class="position-absolute top-0 start-0 bg-white pe-3 pb-3" src="img/about-2.jpg" alt="" style="width: 200px; height: 200px;">
+                </div>
+                <!-- Your existing code for the personal information section -->
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <h6 class="text-primary text-uppercase mb-2">Personal Information</h6>
+                <h1 class="display-6 mb-4">Provide Your Personal Details</h1>
+                <form id="llrVerificationForm">
+                    <!-- Add only LLR and Date of Birth fields -->
+                    <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0 bg-light" id="llrNumber" placeholder="LLR Number">
+                                    <label for="llrNumber">LLR Number</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0 bg-light" id="dateOfBirth" placeholder="Date of Birth">
+                                    <label for="dateOfBirth">Date of Birth</label>
+                                </div>
+                            </div>
+
+                        <!-- Add checkboxes for RTO test and LLR period -->
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rtoTestPassed">
+                                <label class="form-check-label" for="rtoTestPassed">
+                                    Have you passed the RTO test?
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="llrPeriodOver">
+                                <label class="form-check-label" for="llrPeriodOver">
+                                    Is 1 month period of LLR over?
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Add submit button -->
+                        <div class="col-12 mt-3">
+                            <button type="button" class="btn btn-primary" onclick="verifyLLR()">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Personal Information End -->
+
+<!-- Modal for LLR verification result -->
+<div class="modal fade" id="llrVerificationModal" tabindex="-1" aria-labelledby="llrVerificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="llrVerificationModalLabel">LLR Verification Result</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="verificationResult"></div>
+                <img src="../drivin-1.0.0/img/Driving Liscence.jpg" alt="License Image" style="max-width: 100%; height: auto;">
+                <button type="button" class="btn btn-primary" id="downloadButton">Download License</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript code for LLR verification -->
+<script>
+    function verifyLLR() {
+        // Perform LLR verification logic here
+        // For simplicity, assuming LLR is valid if both checkboxes are checked
+        var rtoTestPassed = document.getElementById('rtoTestPassed').checked;
+        var llrPeriodOver = document.getElementById('llrPeriodOver').checked;
+
+        if (rtoTestPassed && llrPeriodOver) {
+            // Display the result in the modal
+            document.getElementById('verificationResult').innerHTML = '<p>LLR verified</p>';
+            // Show the modal
+            var modal = new bootstrap.Modal(document.getElementById('llrVerificationModal'));
+            modal.show();
+            // Add download functionality to the download button
+            document.getElementById('downloadButton').addEventListener('click', function () {
+                // Implement download logic here
+                alert('Download functionality goes here.');
+            });
+        } else {
+            // Display a message if LLR verification fails
+            alert('LLR verification failed. Please check the checkboxes.');
+        }
+    }
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<!-- JavaScript for SweetAlert Pop-up -->
+<script>
+    function submitForm() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Your form has been submitted for the LLR evaluation process',
+            confirmButtonText: 'Okay'
+        });
+    }
+</script>
+
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright text-light py-4 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a href="#">Drivin</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

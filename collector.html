@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collector Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container-xxl {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        #collectorLoginSection,
+        #powerBiReportSection {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Collector Login Page Start -->
+    <div class="container-xxl py-6" id="collectorLoginSection">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <h6 class="text-primary text-uppercase mb-2">Collector Login</h6>
+                    <form id="collectorLoginForm">
+                        <div class="mb-3">
+                            <label for="collectorUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="collectorUsername" placeholder="Collector"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="collectorPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="collectorPassword" placeholder="Collector"
+                                required>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="collectorLogin()">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Collector Login Page End -->
+
+    <!-- Power BI Report Section -->
+    <div class="container-xxl py-6" id="powerBiReportSection" style="display:none;">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-12">
+                    <h2 class="text-primary text-uppercase mb-4">Power BI Report</h2>
+                    <!-- Replace the URL with the actual embed link provided by Power BI -->
+                    <a href="https://app.powerbi.com/links/ywthCN5cqY?ctid=8c25f501-4f7e-4b41-9aa6-bdd5f317d4e4&pbi_source=linkShare"
+                        target="_blank" rel="noopener noreferrer">Open Power BI Report</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Login Functionality -->
+    <script>
+        function collectorLogin() {
+            // Your login logic for the collector here
+            // Example: Check credentials and show Power BI report if login is successful
+
+            var collectorUsername = document.getElementById("collectorUsername").value;
+            var collectorPassword = document.getElementById("collectorPassword").value;
+
+            // Replace the following condition with your actual login logic
+            if (collectorUsername === "co" && collectorPassword === "co") {
+                // Hide the login section
+                document.getElementById("collectorLoginSection").style.display = "none";
+
+                // Display the Power BI report section
+                document.getElementById("powerBiReportSection").style.display = "block";
+            } else {
+                // Handle unsuccessful login, show an error message, etc.
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
