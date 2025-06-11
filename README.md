@@ -98,4 +98,4 @@ Drivin is a multi-module digital system built to streamline the traffic departme
 
 ## 📖 License
 
-This project is licensed under the [MIT License](LICENSE) © 2025 Mithunsankar S.
+This project is licensed under the [MIT License](LICENSE) © 2023 Mithunsankar S.
