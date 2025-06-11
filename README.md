@@ -53,26 +53,29 @@ Drivin is a multi-module digital system built to streamline the traffic departme
 
 ## 🧪 Sample Modules in Action
 
-- ✅ **Complaint Submission**
-  ![Complaint](media/complaint.png)
-
-- ✅ **Driving License Renewal**
-  ![Renewal](media/Renewal.jpg)
+- ✅ **Voiceflow Assistant**
+  ![Voiceflow](media/voiceflowchatbot.jpg)
 
 - ✅ **LLR Verification**
   ![LLR](media/LLR.jpg)
 
-- ✅ **Police OCR Portal**
-  ![Police](media/police.jpg)
+- ✅ **Driving License**
+  ![Renewal](media/License.jpg)
 
-- ✅ **Voiceflow Assistant**
-  ![Voiceflow](media/voiceflow.jpg)
+- ✅ **Driving License Renewal**
+  ![Renewal](media/Renewal.jpg)
+
+- ✅ **Police OCR Portal**
+  ![Police](media/policelogin.jpg)
+
+- ✅ **Complaint Submission**
+  ![Complaint](media/complaint.jpg)
 
 - ✅ **Collector Login**
   ![Collector Login](media/collectorlogin.jpg)
 
 - ✅ **Power BI**
-  ![Power BI](media/powerbireport.jpg)
+  ![Power BI](media/PowerBireport.jpg)
 
 ---
 
