@@ -54,7 +54,7 @@ Drivin is a multi-module digital system built to streamline the traffic departme
 ## 🧪 Sample Modules in Action
 
 - ✅ **Voiceflow Assistant**
-  ![Voiceflow](media/voiceflowchatbot.jpg)
+  ![Voiceflow](media/VoiceflowChatbot.jpg)
 
 - ✅ **LLR Verification**
   ![LLR](media/LLR.jpg)
@@ -75,7 +75,7 @@ Drivin is a multi-module digital system built to streamline the traffic departme
   ![Collector Login](media/collectorlogin.jpg)
 
 - ✅ **Power BI**
-  ![Power BI](media/PowerBireport.jpg)
+  ![Power BI](media/PowerBiReport.jpg)
 
 ---
 
